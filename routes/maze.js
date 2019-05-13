@@ -35,8 +35,12 @@ router.post('/', async (req, res) => {
   });
 });
 
-router.put('/', (req, res) => {
-  return res.json({data: 'Received a MAZE PUT HTTP method'});
+router.put('/test/:id', async (req, res) => {
+  const winnerMaze = await Maze.findById(req.params.id)
+  winnerMaze.successes=winnerMaze.successes+1
+  winnerMaze.attempts=winnerMaze.attempts+1
+  winnerMaze.save()
+  return res.json({'winner':winnerMaze});
 });
 
 router.delete('/', (req, res) => {
