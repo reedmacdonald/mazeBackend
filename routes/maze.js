@@ -23,14 +23,15 @@ router.post('/', async (req, res) => {
     bigArray[req.body.maze[i]]=1;
 
   }
-  const maze = await Maze.create({maze:bigArray,name:req.body.name,attempts:0,successes:0})
+  const maze = await Maze.create({maze:bigArray,name:req.body.name,attempts:0,successes:0,owner:req.body.currentUser})
   console.log(req.body.name,'<-----req.body.name')
   console.log(req.body.maze,'<---req.body.maze')
   return res.json({
     'A maze in binary---->': bigArray,
     'Name of the maze---->':req.body.name,
     'attempts---->':maze.attempts,
-    'successes--->':maze.successes
+    'successes--->':maze.successes,
+    'owner------->':maze.owner
   });
 });
 
