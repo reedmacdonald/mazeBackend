@@ -43,6 +43,13 @@ router.put('/test/:id', async (req, res) => {
   return res.json({'winner':winnerMaze});
 });
 
+router.put('/test/loser/:id', async (req, res) => {
+  const winnerMaze = await Maze.findById(req.params.id)
+  winnerMaze.attempts=winnerMaze.attempts+1
+  winnerMaze.save()
+  return res.json({'loser':winnerMaze});
+});
+
 router.delete('/', (req, res) => {
   return res.json({data: 'Received a MAZE DELETE HTTP method'});
 });
