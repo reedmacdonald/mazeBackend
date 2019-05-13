@@ -17,18 +17,20 @@ router.get('/test', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log(req.body.maze)
+  console.log(req.body,'<------req.body')
   const bigArray = new Array(6400).fill(0)
   for (i=0;i<req.body.maze.length;i++){
     bigArray[req.body.maze[i]]=1;
 
   }
-  const maze = await Maze.create({maze:bigArray,name:req.body.name,attempts:0,success:0})
+  const maze = await Maze.create({maze:bigArray,name:req.body.name,attempts:0,successes:0})
+  console.log(req.body.name,'<-----req.body.name')
+  console.log(req.body.maze,'<---req.body.maze')
   return res.json({
     'A maze in binary---->': bigArray,
     'Name of the maze---->':req.body.name,
-    'attempts---->':0,
-    'successes--->':0
+    'attempts---->':maze.attempts,
+    'successes--->':maze.successes
   });
 });
 
