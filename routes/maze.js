@@ -11,8 +11,8 @@ router.get('/all', async (req, res) => {
   return res.json({data: foundMaze});
 });
 
-router.get('/test', async (req, res) => {
-  const foundMaze = await Maze.findOne({})
+router.get('/test/:id', async (req, res) => {
+  const foundMaze = await Maze.findById(req.params.id)
   return res.json({data: foundMaze});
 });
 
