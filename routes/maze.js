@@ -23,9 +23,10 @@ router.post('/', async (req, res) => {
     bigArray[req.body.maze[i]]=1;
 
   }
-  const maze = await Maze.create({maze:bigArray,name:req.body.name,attempts:0,successes:0,owner:req.body.currentUser})
+  const maze = await Maze.create({maze:bigArray,name:req.body.name,attempts:0,successes:0,owner:req.body.userName})
   console.log(req.body.name,'<-----req.body.name')
   console.log(req.body.maze,'<---req.body.maze')
+  console.log(req.body.userName,'<---req.body.userName')
   return res.json({
     'A maze in binary---->': bigArray,
     'Name of the maze---->':req.body.name,
@@ -41,6 +42,11 @@ router.put('/test/:id', async (req, res) => {
   winnerMaze.attempts=winnerMaze.attempts+1
   winnerMaze.save()
   return res.json({'winner':winnerMaze});
+});
+
+router.delete('/delete/:id', async (req, res) => {
+  const deletedMaze = await Maze.findByIdAndRemove(req.params.id)
+  return res.json({'deletedMaze--->':req.params.id});
 });
 
 router.put('/test/loser/:id', async (req, res) => {
