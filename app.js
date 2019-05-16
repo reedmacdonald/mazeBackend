@@ -26,6 +26,9 @@ app.use(cookieParser());
 app.use('/api/v1', apiRouter);
 app.use('/users', usersRouter);
 app.use('/maze', mazeRouter);
+app.get('/', function(req, res){
+  res.redirect('/maze');
+});
 
 
 
