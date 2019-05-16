@@ -23,11 +23,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/v1', apiRouter);
-app.use('/users', usersRouter);
-app.use('/maze', mazeRouter);
+app.use('https://reedmazebackend.herokuapp.com/api/v1', apiRouter);
+app.use('https://reedmazebackend.herokuapp.com/users', usersRouter);
+app.use('https://reedmazebackend.herokuapp.com/maze', mazeRouter);
 app.get('/', function(req, res){
-  res.redirect('/maze');
+  res.redirect('https://reedmazebackend.herokuapp.com/maze');
 });
 
 
