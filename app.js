@@ -17,7 +17,7 @@ const mazeRouter = require('./routes/maze');
 const app = express();
 
 const corsOptions = {
-  origin: 'https://reedmazepage.herokuapp.com/',
+  origin: 'https://reedmazepage.herokuapp.com',
   credentials: true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
  }
