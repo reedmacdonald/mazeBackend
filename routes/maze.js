@@ -3,7 +3,7 @@ const router = express.Router();
 const Maze = require('../models/Mazes')
 
 router.get('/', (req, res) => {
-  return res.json({data: 'Fuck You, Reed'});
+  return res.json({data: 'Hi Reed'});
 });
 
 router.get('/all', async (req, res) => {
