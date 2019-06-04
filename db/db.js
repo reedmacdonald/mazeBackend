@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI,{
+mongoose.connect('mongodb://localhost/project_3',{
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: true
