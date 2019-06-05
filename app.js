@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const io = require('socket.io')()
 require('dotenv').config();
 
 require('./db/db')
@@ -44,5 +45,10 @@ app.use((req, res, next) => {
 //   res.status(err.status || 500);
 //   res.render('error');
 // });
+//reset()
+const port = 1337
+io.listen(port)
+console.log('Listening on port ' + port + '...')
 
 module.exports = app;
+
