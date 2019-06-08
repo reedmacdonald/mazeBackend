@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const io = require('socket.io')()
 require('dotenv').config();
 
 require('./db/db')
@@ -50,3 +51,4 @@ app.listen(port, function(){
 
 
 module.exports = app;
+

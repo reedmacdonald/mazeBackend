@@ -6,8 +6,18 @@ router.get('/', (req, res) => {
   return res.json({data: 'Hi Reed'});
 });
 
+router.get('/all/:id', async (req, res) => {
+  const foundMaze = await Maze.find({owner:req.params.id})
+  return res.json({data: foundMaze});
+});
+
 router.get('/all', async (req, res) => {
   const foundMaze = await Maze.find({})
+  return res.json({data: foundMaze});
+});
+
+router.get('/popular', async (req, res) => {
+  const foundMaze = await Maze.find({attempts: { $gte: 5 }})
   return res.json({data: foundMaze});
 });
 
