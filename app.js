@@ -18,7 +18,7 @@ const mazeRouter = require('./routes/maze');
 const app = express();
 
 const corsOptions = {
-  origin: 'https://reedmazepage.herokuapp.com',
+  origin: 'https://mazepagereed.herokuapp.com',
   credentials: true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
  }
@@ -29,11 +29,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('https://reedmazebackend.herokuapp.com/api/v1', apiRouter);
-app.use('https://reedmazebackend.herokuapp.com/users', usersRouter);
-app.use('https://reedmazebackend.herokuapp.com/maze', mazeRouter);
+app.use('https://mazebackendreed.herokuapp.com/api/v1', apiRouter);
+app.use('https://mazebackendreed.herokuapp.com/users', usersRouter);
+app.use('https://mazebackendreed.herokuapp.com/maze', mazeRouter);
 app.get('/', function(req, res){
-  res.redirect('https://reedmazebackend.herokuapp.com/maze');
+  res.redirect('https://mazebackendreed.herokuapp.com/maze');
 });
 
 
